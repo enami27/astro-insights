@@ -30,8 +30,8 @@ def create_birth_chart(date, time, location):
 
 # Simple birthchart analysis/test
 def analyze_chart(chart):
-    sun_sign = chart.getObject('Sun').sign
-    return f"The sun sign is {sun_sign}."
+    for obj in chart.objects:
+        print(obj)
 
 # Main
 def main():
