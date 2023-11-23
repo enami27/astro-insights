@@ -1,6 +1,7 @@
 from flatlib.datetime import Datetime
 from flatlib.geopos import GeoPos
 from flatlib.chart import Chart
+from flatlib.const import ASC, MC
 import requests
 
 # Function to get latitude and longitude from location using Nominatim
@@ -26,7 +27,13 @@ def create_birth_chart(date, time, location):
     latitude, longitude = get_lat_long(location)
     birth_location = GeoPos(latitude, longitude)
 
-    return Chart(birth_datetime, birth_location)
+    chart = Chart(birth_datetime, birth_location)
+
+    # Retrieve ASC and MC
+    ascendant = chart.get(ASC)
+    midheaven = chart.get(MC)
+
+    return chart, ascendant, midheaven
 
 # Simple birthchart analysis/test
 def analyze_chart(chart):
@@ -41,12 +48,15 @@ def main():
         time = input("Enter your birth time (HH:MM): ")
         location = input("Enter your birth location (City, Country): ")
         
-        # Create and analyze user chart
-        chart = create_birth_chart(date, time, location)
+        # Create chart and retrieve ASC and MC
+        chart, ascendant, midheaven = create_birth_chart(date, time, location)
         analysis = analyze_chart(chart)
         
         # Display result
         print(analysis)
+        print(f"Ascendant (ASC): {ascendant}")
+        print(f"Midheaven (MC): {midheaven}")
+
     except ValueError as e:
         print(f"Error: {e}")
 
