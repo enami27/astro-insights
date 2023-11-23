@@ -41,21 +41,32 @@ def analyze_chart(chart):
         print(obj)
 
 # Main
+
 def main():
     try:
         # User data
+        name = input("Enter your name : ")
         date = input("Enter your birth date (YYYY/MM/DD): ")
         time = input("Enter your birth time (HH:MM): ")
         location = input("Enter your birth location (City, Country): ")
         
         # Create chart and retrieve ASC and MC
         chart, ascendant, midheaven = create_birth_chart(date, time, location)
-        analysis = analyze_chart(chart)
-        
-        # Display result
-        print(analysis)
-        print(f"Ascendant (ASC): {ascendant}")
-        print(f"Midheaven (MC): {midheaven}")
+
+        # Ask for user choice after getting birth details
+        choice = input("Enter '1' to view your chart analysis, or '2' for other options: ")
+
+        if choice == '1':
+            # If chart analysis is chosen
+            print(f"Hello {name}, here's your chart analysis!")
+            analyze_chart(chart)
+            print(f"Ascendant (ASC): {ascendant}")
+            print(f"Midheaven (MC): {midheaven}")
+        elif choice == '2':
+            # Code for other options
+            pass
+        else:
+            print("Invalid choice.")
 
     except ValueError as e:
         print(f"Error: {e}")
