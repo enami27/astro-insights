@@ -40,6 +40,22 @@ def analyze_chart(chart):
     for obj in chart.objects:
         print(obj)
 
+# retrieve chart houses
+def chart_houses(chart):
+    for house in chart.houses:
+        print(house)
+
+# check whether the chart is day or night
+def is_diurnal(chart):
+    if(chart.isDiurnal() == True):
+        print("You have a day chart")
+    else:
+        print("You have a night chart")
+
+# get moon phase for a given chart
+def get_moon_phase(chart):
+    print("The moon was in " + chart.getMoonPhase() + " when you were born.")
+
 # Main
 
 def main():
@@ -54,7 +70,7 @@ def main():
         chart, ascendant, midheaven = create_birth_chart(date, time, location)
 
         # Ask for user choice after getting birth details
-        choice = input("Enter '1' to view your chart analysis, or '2' for other options: ")
+        choice = input("Enter '1' to view your chart analysis, or '2' to view your chart houses, or 3 for other chart properties: ")
 
         if choice == '1':
             # If chart analysis is chosen
@@ -63,8 +79,12 @@ def main():
             print(f"Ascendant (ASC): {ascendant}")
             print(f"Midheaven (MC): {midheaven}")
         elif choice == '2':
-            # Code for other options
-            pass
+            # View chart houses
+            print(f"Hello {name}, here are the sign for each one of your houses")
+            chart_houses(chart)
+        elif choice == '3':
+            get_moon_phase(chart)
+            is_diurnal(chart)
         else:
             print("Invalid choice.")
 
