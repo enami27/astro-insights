@@ -20,14 +20,14 @@ Run the script and follow the on screen prompts
 Enter the requested information, the script will generate a chart based on the provided info
 
 ## Features
-** Birth chart creation ** : Generate a birthchart using the flatlib API
-** Chart analysis ** : Analyzes various aspects of the astrology chart.
-** Chart houses ** : Retrieves and display chart houses
-** Diurnal check ** : Determines if the chart is a day or night chart
-** Moon phase ** : Finds out the moon phase at the time of birth
+**Birth chart creation** : Generate a birthchart using the flatlib API
+**Chart analysis** : Analyzes various aspects of the astrology chart.
+**Chart houses** : Retrieves and display chart houses
+**Diurnal check** : Determines if the chart is a day or night chart
+**Moon phase** : Finds out the moon phase at the time of birth
 
 ## How it works
-** Data input ** : The user inputs their birth details
-** Location processing ** : Uses Nominatim API to convert location to latitude and longitude
-** Chart Generation ** : Creates a birth chart with Flatlib using the processed data
-** Analysis operations ** : Provides options to view different aspects of the astrology chart
+**Data input** : The user inputs their birth details
+**Location processing** : Uses Nominatim API to convert location to latitude and longitude
+**Chart Generation** : Creates a birth chart with Flatlib using the processed data
+**Analysis operations** : Provides options to view different aspects of the astrology chart
